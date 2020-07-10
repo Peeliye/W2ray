@@ -1,0 +1,14 @@
+version: '3'
+services:
+    caddy:
+        image: caddy:2-alpine
+        ports: 
+            - "443:443"
+            - "80:80"
+        volumes: 
+            - ./caddy:/caddy
+            - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+    v2ray:
+        image: v2ray/official
+        volumes: 
+            - ./v2ray/config.json:/etc/v2ray/config.json

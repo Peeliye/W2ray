@@ -12,7 +12,9 @@ sed -i "s/YOUR-PASSWORD/$password/g" ./caddy/Caddyfile
 sudo apt-get install uuid-runtime
 
 uuid=$(uuidgen)
-echo "UUID: $uuid"
 sed -i "s/YOUR-UUID/$uuid/g" ./v2ray/config.json
 
-sudo docker build -t w2ray .
+echo "HOSTNAME: $hostname"
+echo "EMAIL: $email"
+echo "PASSWORD: $password"
+echo "UUID: $uuid"

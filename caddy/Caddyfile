@@ -5,7 +5,7 @@ example.com:443 {
     status 404 /*
     index ./www/index.txt
     basicauth /api admin YOUR-PASSWORD
-    proxy /ray 127.0.0.1:8888 {
+    proxy /ray v2ray:8888 {
         websocket
         header_upstream -Origin
     }
