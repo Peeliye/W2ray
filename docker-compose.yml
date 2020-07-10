@@ -1,14 +1,24 @@
 version: '3'
 services:
     caddy:
-        image: caddy:2-alpine
+        image: abiosoft/caddy:1.0.3
+        container_name: caddy
         ports: 
             - "443:443"
             - "80:80"
         volumes: 
             - ./caddy:/caddy
-            - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+            - ./caddy/Caddyfile:/etc/Caddyfile
+        environment:
+            ACME_AGREE: "true"
+        links:
+            - v2ray:v2ray
+        restart: always
     v2ray:
         image: v2ray/official
+        container_name: v2ray
         volumes: 
             - ./v2ray/config.json:/etc/v2ray/config.json
+        restart: always
+        expose: 
+            - "8888"

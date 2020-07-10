@@ -1,5 +1,5 @@
 example.com:443 {
-    tls example@google.com
+    tls example@gmail.com
     root /caddy
     log ./caddy.log
     status 404 /*
