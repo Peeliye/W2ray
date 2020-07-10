@@ -1,0 +1,12 @@
+v2.local.com:443 {
+    tls askfj2q3rnsad@google.com
+    root /caddy
+    log /caddy/caddy.log
+    status 404 /*
+    index ./index.txt
+    basicauth /api admin your-fake-password
+    proxy /ray 127.0.0.1:8888 {
+        websocket
+        header_upstream -Origin
+    }
+}

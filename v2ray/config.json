@@ -1,0 +1,38 @@
+{
+  "inbounds": [{
+    "port": 8888,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "YOUR-UUID",
+          "level": 1,
+          "alterId": 64
+        }
+      ]
+    },
+    "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/ray"
+        }
+      }
+  }],
+  "outbounds": [{
+    "protocol": "freedom",
+    "settings": {}
+  },{
+    "protocol": "blackhole",
+    "settings": {},
+    "tag": "blocked"
+  }],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": ["geoip:private"],
+        "outboundTag": "blocked"
+      }
+    ]
+  }
+}
