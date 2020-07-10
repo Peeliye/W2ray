@@ -3,7 +3,7 @@ example.com:443 {
     root /caddy
     log ./caddy.log
     status 404 /*
-    index ./index.txt
+    index ./www/index.txt
     basicauth /api admin YOUR-PASSWORD
     proxy /ray 127.0.0.1:8888 {
         websocket
